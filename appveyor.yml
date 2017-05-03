@@ -7,9 +7,9 @@ environment:
 build: off
 
 build_script:
-  cd C:\projects\oj\ext\oj
-  ruby extconf.rb
-  make
+  - cd C:\projects\oj\ext\oj
+  - ruby extconf.rb
+  - make
 
 before_test:
   - ruby -v
