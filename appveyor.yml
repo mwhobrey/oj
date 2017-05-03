@@ -4,7 +4,12 @@ environment:
   matrix:
     - RUBY_VERSION: 23-x64
 
-#build: off
+build: off
+
+build_script:
+  cd C:\projects\oj\ext\oj
+  ruby extconf.rb
+  make
 
 before_test:
   - ruby -v
