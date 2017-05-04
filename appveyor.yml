@@ -3,8 +3,7 @@ version: 1.0.{build}-{branch}
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
-
-image: Visual Studion 2017
+image: Visual Studio 2017
 
 environment:
   matrix:
