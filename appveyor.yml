@@ -10,6 +10,11 @@ install:
   - set PATH=C:\Ruby%RUBY_VERSION%\bin;%PATH%
   - gem install oj
 
+build_script:
+  - cd C:\projects\oj\ext\oj
+  - ruby extconf.rb
+  - make
+
 before_test:
   - ruby -v
   - gem -v
