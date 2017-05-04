@@ -1,21 +1,33 @@
 version: 1.0.{build}-{branch}
 
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+
+image: Visual Studion 2017
+
 environment:
+  APPVEYOR_RDP_PASSWORD=fixme
   matrix:
     - RUBY_VERSION: 23-x64
 
 build: off
 
+before_build:
+  - ruby -v
+  - gem -v
+  - bundle -v
+
+#C:\Ruby23-x64\DevKit\bin
+
+# This isn't what is needed but it verifies the existing release compiles.
 install:
   - set PATH=C:\Ruby%RUBY_VERSION%\bin;%PATH%
   - gem install oj
 
+# make does not exits, hmm
 build_script:
   - cd C:\projects\oj\ext\oj
   - ruby extconf.rb
   - make
 
-before_test:
-  - ruby -v
-  - gem -v
-  - bundle -v
