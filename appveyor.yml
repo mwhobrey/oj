@@ -7,9 +7,9 @@ init:
 image: Visual Studion 2017
 
 environment:
-  APPVEYOR_RDP_PASSWORD=fixme
   matrix:
     - RUBY_VERSION: 23-x64
+      APPVEYOR_RDP_PASSWORD: fixme
 
 build: off
 
