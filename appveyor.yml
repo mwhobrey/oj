@@ -1,14 +1,11 @@
 version: 1.0.{build}-{branch}
 
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
 image: Visual Studio 2015
 
 environment:
   APPVEYOR_RDP_PASSWORD: fixm3-wtf
   RUBY_VERSION: 23-x64
-  PATH: C:\Ruby%RUBY_VERSION%\bin;C:\Ruby23-x64\DevKit\bin;%PATH%
+  PATH: C:\Ruby%RUBY_VERSION%\bin;C:\Ruby23-x64\DevKit\bin;C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1;%PATH%
 
 #  matrix:
 #    - RUBY_VERSION: 23-x64
