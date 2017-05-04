@@ -19,7 +19,7 @@ before_build:
 
 # This isn't what is needed but it verifies the existing release compiles.
 install:
-  - set PATH=C:\Ruby%RUBY_VERSION%\bin;%PATH%
+  - set PATH=C:\Ruby%RUBY_VERSION%\bin;C:\Ruby23-x64\DevKit\bin;%PATH%
   - gem install oj
 
 # make does not exits, hmm
