@@ -24,7 +24,7 @@ environment:
     #- RUBY_VERSION: 21
 
 install:
-  - set PATH=C:\Ruby%RUBY_VERSION%\bin;C:\MinGW\bin;%PATH%
+  - set PATH=C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;%PATH%
   - bundle install
 
 build: off
