@@ -29,14 +29,21 @@ install:
 
 build: off
 
+before_test:
+  - gem update --system
+  - ruby -v
+  # - make -v
+  # - bundle -v
+
+test_script:
+  - bundle exec rake
+
 before_build:
+  - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
   - gem update --system
   - ruby -v
   - make -v
   #- bundle -v
-
-test_script:
-  - bundle exec rake
 
 build_script:
   - echo %PATH%
