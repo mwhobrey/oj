@@ -29,14 +29,14 @@ install:
 
 build: off
 
-before_test:
-  - gem update --system
-  - ruby -v
-  # - make -v
-  # - bundle -v
+# before_test:
+#   - gem update --system
+#   - ruby -v
+#   # - make -v
+#   # - bundle -v
 
-test_script:
-  - bundle exec rake
+# test_script:
+#   - bundle exec rake
 
 before_build:
   - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
@@ -47,11 +47,12 @@ before_build:
 
 build_script:
   - echo %PATH%
-  - cd C:\projects\oj\ext\oj
-  - ruby extconf.rb
-  - make
-  - cd C:\projects\oj\test
-  - ruby test_object.rb -n test_time_early
+  - bundle exec rake
+  # - cd C:\projects\oj\ext\oj
+  # - ruby extconf.rb
+  # - make
+  # - cd C:\projects\oj\test
+  # - ruby test_object.rb -n test_time_early
   #- bundle config --local path vendor/bundle
   #- bundle install
   #- bundle exec rake
