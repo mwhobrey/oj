@@ -581,7 +581,7 @@ class ObjectJuice < Minitest::Test
     # TBD debug
     puts json
     
-    loaded = Oj.object_load(json);
+    loaded = Oj.object_load(json)
     assert_equal(t.tv_sec, loaded.tv_sec)
     if t.respond_to?(:tv_nsec)
       assert_equal(t.tv_nsec, loaded.tv_nsec)

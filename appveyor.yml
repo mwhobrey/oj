@@ -39,7 +39,6 @@ build: off
 #   - bundle exec rake
 
 before_build:
-  - copy c:\MinGW\bin\mingw32-make.exe c:\MinGW\bin\make.exe
   - gem update --system
   - ruby -v
   - make -v
