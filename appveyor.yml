@@ -35,9 +35,11 @@ test_script:
   - cd %APPVEYOR_BUILD_FOLDER%\ext\oj
   - ruby extconf.rb
   - make
-  - cd %APPVEYOR_BUILD_FOLDER%
+  - cd %APPVEYOR_BUILD_FOLDER%\test
+  - bundle config --local path vendor/bundle
   - bundle install
-  - bundle exec rake
+  - ruby test_object.rb -n test_time_early
+#  - bundle exec rake
 
 build: off
 
