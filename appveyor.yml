@@ -16,7 +16,7 @@ image: Visual Studio 2015
 #     - RUBY_VERSION: 193
 
 environment:
-  # PATH: c:\Ruby%RUBY_VERSION%\DevKit\mingw\bin;C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1;%PATH%
+  PATH: c:\Ruby%RUBY_VERSION%\DevKit\mingw\bin;C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1;%PATH%
   matrix:
     #- RUBY_VERSION: 23
     - RUBY_VERSION: 23-x64
@@ -35,22 +35,31 @@ build: off
 #   # - make -v
 #   # - bundle -v
 
-# test_script:
-#   - bundle exec rake
-
-before_build:
+ test_script:
   - gem update --system
+  - gem install bundler --no-document
   - ruby -v
   - make -v
-  #- bundle -v
-
-build_script:
-  - echo %PATH%
   - cd C:\projects\oj\ext\oj
   - ruby extconf.rb
   - make
-  - cd C:\projects\oj\test
-  - ruby test_object.rb -n test_time_early
+  - bundle install
+  - bundle exec rake
+#   - bundle exec rake
+
+#before_build:
+#  - gem update --system
+#  - ruby -v
+#  - make -v
+  #- bundle -v
+
+#build_script:
+#  - echo %PATH%
+#  - cd C:\projects\oj\ext\oj
+#  - ruby extconf.rb
+#  - make
+#  - cd C:\projects\oj\test
+#  - ruby test_object.rb -n test_time_early
   #- bundle config --local path vendor/bundle
   #- bundle install
   #- bundle exec rake
