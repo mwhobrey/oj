@@ -23,19 +23,11 @@ environment:
     #- RUBY_VERSION: 22
     #- RUBY_VERSION: 21
 
-install:
-  - set PATH=C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;%PATH%
-  - bundle install
+#install:
+#  - set PATH=C:\Ruby%RUBY_VERSION%\bin;C:\Ruby%RUBY_VERSION%\DevKit\bin;%PATH%
+#  - bundle install
 
-build: off
-
-# before_test:
-#   - gem update --system
-#   - ruby -v
-#   # - make -v
-#   # - bundle -v
-
- test_script:
+test_script:
   - gem update --system
   - gem install bundler --no-document
   - ruby -v
@@ -45,7 +37,14 @@ build: off
   - make
   - bundle install
   - bundle exec rake
-#   - bundle exec rake
+
+build: off
+
+# before_test:
+#   - gem update --system
+#   - ruby -v
+#   # - make -v
+#   # - bundle -v
 
 #before_build:
 #  - gem update --system
