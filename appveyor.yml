@@ -32,9 +32,10 @@ test_script:
   - gem install bundler --no-document
   - ruby -v
   - make -v
-  - cd C:\projects\oj\ext\oj
+  - cd %APPVEYOR_BUILD_FOLDER%\ext\oj
   - ruby extconf.rb
   - make
+  - cd %APPVEYOR_BUILD_FOLDER%
   - bundle install
   - bundle exec rake
 
